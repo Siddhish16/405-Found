@@ -161,29 +161,19 @@
             <input type="checkbox" id="chk" aria-hidden="true">
 
             <div class="signup">
-                <form action="/login" method="get">
+                <form action="/verifaction" method="get">
                     <img class="logo" height="800" src='./Walchand.jpeg'></img>
                     <label for="chk" aria-hidden="true" class="myWcePortal">WCE Verfication Portal</label>
                     <div class="loginCont">
-                        <input type="text" name="txt" placeholder="User Name" required="">
-                        <input type="password" name="pswd" placeholder="Password" required="">
+                        <input type="text" name="otp" placeholder="Enter Your OTP" required="">
+                        {{!-- <input type="password" name="pswd" placeholder="Password" required=""> --}}
                         {{!-- <input type="text" name="otp" placeholder="Enter Opt" required=""> --}}
-                        <button>Login</button>
+                        <button>Verify</button>
                     </div>
                 </form>
             </div>
 
-            <div class="login">
-                <form action="/signup" method="get">
-                    <label for="chk" aria-hidden="true">Sign Up</label>
-                    <input type="email" name="Semail" placeholder="Email" required="">
-                    <input type="password" name="Stxt" placeholder="Adhar No" required="">
-                    <input type="string" name="Spswd" placeholder="Adhar Linked Phone No">
-                    <form action="/signup" method="get">
-                        <button type="submit">Sign Up</button>
-                    </form>
-                </form>
-            </div>
+
         </div>
     </body>
 

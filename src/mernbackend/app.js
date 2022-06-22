@@ -30,46 +30,94 @@ app.get("/", (req, res) => {
 
 
 app.get("/login", function(req, res) {
+
+    // for OPT
+    const opt = parseInt(Math.random() * 10000);
+
     Register.findOne({ user: req.query.txt }).then((result) => {
+
+
+
+
+
         if (result.user === req.query.txt && result.userPass === req.query.pswd) {
             // res.send("success" + result);
 
-            res.render("uploadDownload", { userName: result.fullName, graduationYear: result.Grad, course: result.Course, stream: result.Stream, dob: result.DOB, userEmail: result.email, phoneNumber: result.pswd });
-            app.get("/nextupload", function(req, res) {
-                res.render("nextUpload");
+            //start email
+
+            var transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'ankurdattatrayg@gmail.com',
+                    pass: 'aqjlbjnucmwanjpt'
+                }
+            });
+
+            var mailOptions = {
+                from: 'ankurdattatrayg@gmail.com',
+                to: result.email,
+                subject: 'OTP for Verfication Portal',
+                text: `Your OTP for your Verification Portal of Walchand College of Engineering, Sangli ${opt}`
+            };
+
+            transporter.sendMail(mailOptions, function(error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent: ' + info.response);
+                }
+            });
+
+
+            //end email
+
+            res.render("verificationOtp");
+
+            app.get("/verifaction", function(req, res) {
+
+                if (req.query.otp == opt) {
+
+                    res.render("uploadDownload", { userName: result.fullName, graduationYear: result.Grad, course: result.Course, stream: result.Stream, dob: result.DOB, userEmail: result.email, phoneNumber: result.pswd });
+                    app.get("/nextupload", function(req, res) {
+                        res.render("nextUpload");
+                    })
+                    app.get("/fetch1", function(req, res) {
+
+                        res.redirect("https://ipfs.io/ipfs/" + result.hashTran);
+
+                        console.log(result);
+
+                    })
+                    app.get("/fetch2", function(req, res) {
+
+                        res.redirect("https://ipfs.io/ipfs/" + result.hashPass);
+
+                        console.log(result);
+
+                    })
+                    app.get("/fetch3", function(req, res) {
+
+                        res.redirect("https://ipfs.io/ipfs/" + result.hashMark);
+
+                        console.log(result);
+
+                    })
+                    app.get("/fetch4", function(req, res) {
+
+                        res.redirect("https://ipfs.io/ipfs/" + result.hash);
+
+                        console.log(result);
+
+                    })
+
+                    console.log("suucees");
+                } else {
+                    res.render("failedLogin", { error: "*Invalid OTP" });
+                }
+
             })
-            app.get("/fetch1", function(req, res) {
-
-                res.redirect("https://ipfs.io/ipfs/" + result.hashTran);
-
-                console.log(result);
-
-            })
-            app.get("/fetch2", function(req, res) {
-
-                res.redirect("https://ipfs.io/ipfs/" + result.hashPass);
-
-                console.log(result);
-
-            })
-            app.get("/fetch3", function(req, res) {
-
-                res.redirect("https://ipfs.io/ipfs/" + result.hashMark);
-
-                console.log(result);
-
-            })
-            app.get("/fetch4", function(req, res) {
-
-                res.redirect("https://ipfs.io/ipfs/" + result.hash);
-
-                console.log(result);
-
-            })
-
-            console.log("suucees");
         } else {
-            res.render("failedLogin");
+            res.render("failedLogin", { error: "*Login failed" });
         }
 
 
@@ -110,6 +158,7 @@ app.get("/signup", function(req, res) {
                     console.log('Email sent: ' + info.response);
                 }
             });
+            res.render("index")
 
         } else {
             console.log("thi is end")

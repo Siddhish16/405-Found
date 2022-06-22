@@ -8,7 +8,7 @@ const studentRegistration = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true
+
     },
     pswd: {
         type: String,
