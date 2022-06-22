@@ -21,7 +21,7 @@
     <body>
         <div class="Header">
             <div class="App1">
-                <img class="logo" height="800" src='./Walchand.jpeg'></img>
+                <img class="logo" style="margin-top: 10px;" height="800" src='./Walchand.jpeg'></img>
             </div>
             <div class="App1">
                 <p class="font">Walchand College of Engineering, Sangli</p>
@@ -46,7 +46,9 @@
                                     <label>Name:</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <div>{{userName}}</div>
+                                    <div>
+                                        <pre style="width: 500px;">{{userName}}</pre>
+                                    </div>
                                 </div>
                             </div>
 
@@ -64,7 +66,9 @@
                                     <label>Graduation Year:</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <label>{{graduationYear}}</label>
+                                    <label>
+                                        <pre>{{graduationYear}}</pre>
+                                    </label>
                                 </div>
                             </div>
 
@@ -73,7 +77,9 @@
                                     <label>Course:</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <label>{{course}}</label>
+                                    <label>
+                                        <pre>{{course}}</pre>
+                                    </label>
                                 </div>
                             </div>
 
@@ -82,7 +88,9 @@
                                     <label>Stream:</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <label>{{stream}}</label>
+                                    <label>
+                                        <pre>{{stream}}</pre>
+                                    </label>
                                 </div>
                             </div>
 
@@ -91,7 +99,9 @@
                                     <label>D.O.B:</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <label>{{dob}}</label>
+                                    <label>
+                                        <pre>{{dob}}</pre>
+                                    </label>
                                 </div>
                             </div>
 
@@ -100,7 +110,9 @@
                                     <label>Email:</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <label>{{userEmail}}</label>
+                                    <label>
+                                        <pre>{{userEmail}}</pre>
+                                    </label>
                                 </div>
                             </div>
 
@@ -109,7 +121,9 @@
                                     <label>Phone No:</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <label>{{phoneNumber}}</label>
+                                    <label>
+                                        <pre>{{phoneNumber}}</pre>
+                                    </label>
                                 </div>
                             </div>
 
@@ -122,7 +136,7 @@
             </div>
 
         </div>
-        <form action="/nextupload" method="get">
+        <form action="/nextupload" method="get" style="margin-top: 290px; margin-left:600px; margin-bottom :50px;">
             <button type="submit">Request Document</button>
         </form>
     </body>

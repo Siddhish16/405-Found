@@ -16,6 +16,7 @@
                 justify-content: center;
                 align-items: center;
                 min-height: 100vh;
+                background-color: rgb(233, 248, 244);
                 font-family: 'Jost', sans-serif;
 
                     {
@@ -29,7 +30,7 @@
             .main {
                 width: 850px;
                 height: 500px;
-                background: rgb(236, 202, 183);
+                background: rgb(55, 122, 122);
                 overflow: hidden;
 
                     {
@@ -56,14 +57,13 @@
 
             label {
                 color: #fff;
-                font-size: 3.0em;
+                font-size: 2.3em;
                 justify-content: center;
                 display: flex;
                 margin: 60px;
                 font-weight: bold;
                 cursor: pointer;
                 transition: .5s ease-in-out;
-                margin-bottom: -18px;
             }
 
             input {
@@ -80,13 +80,13 @@
             }
 
             button {
-                width: 60%;
+                width: 40%;
                 height: 40px;
                 margin: 10px auto;
                 justify-content: center;
                 display: block;
                 color: #fff;
-                background: #573b8a;
+                background: #083d55;
                 font-size: 1em;
                 font-weight: bold;
                 margin-top: 20px;
@@ -102,10 +102,11 @@
                 font-size: 30px;
                 color: antiquewhite;
                 margin-top: 15px;
+                margin-bottom: -40px;
             }
 
             button:hover {
-                background: #6d44b8;
+                background: #084f70;
             }
 
             .login {
@@ -117,7 +118,7 @@
             }
 
             .login label {
-                color: #573b8a;
+                color: #0d455c;
                 transform: scale(.6);
             }
 
@@ -163,29 +164,32 @@
 
             <div class="signup">
                 <form action="/login" method="get">
-                    <img class="logo" height="800" src='./Walchand.jpeg'></img>
+                    <img class="logo" height="800" style="margin-left: 363px; margin-top: -28px;"
+                        src='./Walchand.jpeg'></img>
                     <label for="chk" aria-hidden="true" class="myWcePortal">WCE Verfication Portal</label>
                     <div class="loginCont">
                         <input type="text" name="txt" placeholder="User Name" required="">
-                        {{!-- <input type="email" name="email" placeholder="Email" required=""> --}}
                         <input type="password" name="pswd" placeholder="Password" required="">
+                        {{!-- <input type="text" name="otp" placeholder="Enter Opt" required=""> --}}
                         <button>Login</button>
-
                     </div>
                 </form>
             </div>
 
             <div class="login">
                 <form action="/signup" method="get">
-                    <label for="chk" aria-hidden="true">Sign Up<br>
-
-                    </label>
-                    <p style="margin-left: 380px; color:red ; margin-bottom: 30px; font-size:13px">*Sign Up failed</p>
-                    <input type="email" name="email" placeholder="Email" required="">
-                    <input type="password" name="txt" placeholder="Adhar No" required="">
-                    <input type="string" name="pswd" placeholder="Adhar Linked Phone No">
+                    <label for="chk" aria-hidden="true">Sign Up</label>
+                    <p style="margin-left: 379px;
+    margin-top: -61px;
+    margin-bottom: 38px;
+    color: red;
+    font-size: 13px;">*Signup failed</p>
+                    <input type="email" name="Semail" placeholder="Email" required="">
+                    <input type="password" name="Stxt" placeholder="Adhar No" required="">
+                    <input type="string" name="Spswd" placeholder="Adhar Linked Phone No">
                     <form action="/signup" method="get">
-                        <button type="submit">sign Up</button>
+                        <button type="submit">Sign Up</button>
+
                     </form>
                 </form>
             </div>

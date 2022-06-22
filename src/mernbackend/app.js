@@ -27,12 +27,27 @@ app.get("/", (req, res) => {
 })
 
 
+//these variables are for authentication
+var UserInfo;
+var UserPass;
 
+function InsertInfo(second) {
+
+    UserPass = second;
+}
+
+function FetchInfo() {
+    return UserPass;
+}
+
+function CleanInfo() {
+    UserPass = null;
+}
 
 app.get("/login", function(req, res) {
 
     // for OPT
-    const opt = parseInt(Math.random() * 10000);
+
 
     Register.findOne({ user: req.query.txt }).then((result) => {
 
@@ -43,6 +58,10 @@ app.get("/login", function(req, res) {
         if (result.user === req.query.txt && result.userPass === req.query.pswd) {
             // res.send("success" + result);
 
+            var opt = parseInt(Math.random() * 10000);
+
+
+            // console.log(localStorage);
             //start email
 
             var transporter = nodemailer.createTransport({
@@ -77,27 +96,42 @@ app.get("/login", function(req, res) {
 
                 if (req.query.otp == opt) {
 
+                    InsertInfo(result.pswd);
                     res.render("uploadDownload", { userName: result.fullName, graduationYear: result.Grad, course: result.Course, stream: result.Stream, dob: result.DOB, userEmail: result.email, phoneNumber: result.pswd });
                     app.get("/nextupload", function(req, res) {
+
+
                         res.render("nextUpload");
                     })
                     app.get("/fetch1", function(req, res) {
 
-                        res.redirect("https://ipfs.io/ipfs/" + result.hashTran);
-
+                        if (FetchInfo() == result.pswd) {
+                            res.redirect("https://ipfs.io/ipfs/" + result.hashTran);
+                        } else {
+                            res.render("logout", { logoutMsg: "You are Logout" });
+                        }
                         console.log(result);
 
                     })
                     app.get("/fetch2", function(req, res) {
+                        if (FetchInfo() == result.pswd) {
+                            res.redirect("https://ipfs.io/ipfs/" + result.hashPass);
+                        } else {
+                            res.render("logout", { logoutMsg: "You are Logout" });
+                        }
 
-                        res.redirect("https://ipfs.io/ipfs/" + result.hashPass);
 
                         console.log(result);
 
                     })
                     app.get("/fetch3", function(req, res) {
+                        if (FetchInfo() == result.pswd) {
+                            res.redirect("https://ipfs.io/ipfs/" + result.hashMark);
+                        } else {
+                            res.render("logout", { logoutMsg: "You are Logout" });
+                        }
 
-                        res.redirect("https://ipfs.io/ipfs/" + result.hashMark);
+
 
                         console.log(result);
 
@@ -108,6 +142,11 @@ app.get("/login", function(req, res) {
 
                         console.log(result);
 
+                    })
+                    app.get("/logout", function(req, res) {
+
+                        CleanInfo();
+                        res.render("logout", { logoutMsg: "Successfully Logout" });
                     })
 
                     console.log("suucees");
@@ -122,8 +161,10 @@ app.get("/login", function(req, res) {
 
 
     }).catch((err) => {
-        res.send(err);
-        console.log()
+
+        res.render("failedLogin", { error: "*Incorrect User name or Password" });
+        // res.send(err);
+        console.log("the error is ocuuring")
     })
 
 })

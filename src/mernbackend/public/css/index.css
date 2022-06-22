@@ -32,8 +32,8 @@
     --bs-btn-bg: #0d6efd;
     --bs-btn-border-color: #0d6efd;
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #0b5ed7;
-    --bs-btn-hover-border-color: #0a58ca;
+    --bs-btn-hover-bg: #567fbd;
+    --bs-btn-hover-border-color: #567fbd;
     --bs-btn-focus-shadow-rgb: 49, 132, 253;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #0a58ca;
@@ -78,7 +78,7 @@
 .font {
     font-size: small;
     text-align: left;
-    padding-left: 20px;
+    padding-left: 6px;
 }
 
 .font1 {
@@ -179,10 +179,10 @@
     justify-content: center;
     align-items: center;
     width: 40%;
-    height: 16cm;
+    height: 12cm;
     box-shadow: 11px 12px 13px 12px rgb(207, 207, 207);
     background-color: white;
-    margin-left: 35%;
+    margin-left: 31%;
     padding-left: 7%;
     padding-top: 1%;
     margin-bottom: 2%;

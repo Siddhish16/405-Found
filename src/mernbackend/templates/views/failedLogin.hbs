@@ -29,7 +29,7 @@
             .main {
                 width: 850px;
                 height: 500px;
-                background: rgb(236, 202, 183);
+                background: rgb(55, 122, 122);
                 overflow: hidden;
 
                     {
@@ -76,6 +76,7 @@
                 border: none;
                 outline: none;
                 border-radius: 5px;
+
             }
 
             button {
@@ -85,7 +86,7 @@
                 justify-content: center;
                 display: block;
                 color: #fff;
-                background: #573b8a;
+                background: #083d55;
                 font-size: 1em;
                 font-weight: bold;
                 margin-top: 20px;
@@ -104,7 +105,7 @@
             }
 
             button:hover {
-                background: #6d44b8;
+                background: #084f70;
             }
 
             .login {
@@ -113,10 +114,11 @@
                 border-radius: 60% / 10%;
                 transform: translateY(-180px);
                 transition: .8s ease-in-out;
+
             }
 
             .login label {
-                color: #573b8a;
+                color: #0d455c;
                 transform: scale(.6);
             }
 
@@ -134,7 +136,7 @@
             }
 
             .loginCont {
-                margin-top: 120px;
+                margin-top: 50px;
             }
 
             .imglogo {
@@ -162,14 +164,15 @@
 
             <div class="signup">
                 <form action="/login" method="get">
-                    <img class="logo" height="800" src='./Walchand.jpeg'></img>
+                    <img class="logo" height="800" style="margin-left: 363px; margin-top: -28px;"
+                        src='./Walchand.jpeg'></img>
                     <label for="chk" aria-hidden="true" class="myWcePortal">WCE Verfication Portal</label>
                     <div class="loginCont">
                         <input type="text" name="txt" placeholder="User Name" required="">
                         {{!-- <input type="email" name="email" placeholder="Email" required=""> --}}
                         <input type="password" name="pswd" placeholder="Password" required="">
                         <button>Login</button>
-                        <p style="margin-left: 380px;margin-top:2px; color:red">{{error}}</p>
+                        <p style="margin-left: 300px;margin-top:2px; color:rgb(116, 29, 29)">{{error}}</p>
                     </div>
                 </form>
             </div>

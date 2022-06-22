@@ -16,7 +16,6 @@
                 justify-content: center;
                 align-items: center;
                 min-height: 100vh;
-                background-color: rgb(233, 248, 244);
                 font-family: 'Jost', sans-serif;
 
                     {
@@ -80,7 +79,7 @@
             }
 
             button {
-                width: 40%;
+                width: 60%;
                 height: 40px;
                 margin: 10px auto;
                 justify-content: center;
@@ -102,7 +101,6 @@
                 font-size: 30px;
                 color: antiquewhite;
                 margin-top: 15px;
-                margin-bottom: -40px;
             }
 
             button:hover {
@@ -163,30 +161,16 @@
             <input type="checkbox" id="chk" aria-hidden="true">
 
             <div class="signup">
-                <form action="/login" method="get">
-                    <img class="logo" height="800" style="margin-left: 363px; margin-top: -28px;"
-                        src='./Walchand.jpeg'></img>
-                    <label for="chk" aria-hidden="true" class="myWcePortal">WCE Verfication Portal</label>
-                    <div class="loginCont">
-                        <input type="text" name="txt" placeholder="User Name" required="">
-                        <input type="password" name="pswd" placeholder="Password" required="">
-                        {{!-- <input type="text" name="otp" placeholder="Enter Opt" required=""> --}}
-                        <button>Login</button>
-                    </div>
-                </form>
+
+                <img class="logo" height="800" style="margin-left: 363px; margin-top: -28px;"
+                    src='/Walchand.jpeg'></img>
+                <label for="chk" aria-hidden="true" style="margin-top: 150px; font-size:40px"
+                    class="myWcePortal">{{logoutMsg}}</label>
+
+
             </div>
 
-            <div class="login">
-                <form action="/signup" method="get">
-                    <label for="chk" aria-hidden="true">Sign Up</label>
-                    <input type="email" name="Semail" placeholder="Email" required="">
-                    <input type="password" name="Stxt" placeholder="Adhar No" required="">
-                    <input type="string" name="Spswd" placeholder="Adhar Linked Phone No">
-                    <form action="/signup" method="get">
-                        <button type="submit">Sign Up</button>
-                    </form>
-                </form>
-            </div>
+
         </div>
     </body>
 
