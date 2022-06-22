@@ -34,14 +34,39 @@ app.get("/login", function(req, res) {
         if (result.user === req.query.txt && result.userPass === req.query.pswd) {
             // res.send("success" + result);
 
-            res.render("uploadDownload")
-            app.get("/fetch", function(req, res) {
+            res.render("uploadDownload", { userName: result.fullName, graduationYear: result.Grad, course: result.Course, stream: result.Stream, dob: result.DOB, userEmail: result.email, phoneNumber: result.pswd });
+            app.get("/nextupload", function(req, res) {
+                res.render("nextUpload");
+            })
+            app.get("/fetch1", function(req, res) {
+
+                res.redirect("https://ipfs.io/ipfs/" + result.hashTran);
+
+                console.log(result);
+
+            })
+            app.get("/fetch2", function(req, res) {
+
+                res.redirect("https://ipfs.io/ipfs/" + result.hashPass);
+
+                console.log(result);
+
+            })
+            app.get("/fetch3", function(req, res) {
+
+                res.redirect("https://ipfs.io/ipfs/" + result.hashMark);
+
+                console.log(result);
+
+            })
+            app.get("/fetch4", function(req, res) {
 
                 res.redirect("https://ipfs.io/ipfs/" + result.hash);
 
                 console.log(result);
 
             })
+
             console.log("suucees");
         } else {
             res.render("failedLogin");
@@ -88,12 +113,12 @@ app.get("/signup", function(req, res) {
 
         } else {
             console.log("thi is end")
-                // res.render("signfail");
+            res.render("signfail");
         }
 
 
     }).catch((err) => {
-        res.send(err);
+        res.render("signfail")
     })
 
 })
